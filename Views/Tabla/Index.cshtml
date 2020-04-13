@@ -1,0 +1,35 @@
+﻿@model List<CRUD_en_MVC_.Net.Models.ViewModels.ListTablaViewModel>
+
+@{
+    ViewBag.Title = "mis datos";
+}
+
+               <h2>@ViewBag.Title</h2>
+
+<div class="row" style="text-align:right; padding:5px;">
+    <a href="~/Tabla/Nuevo" class="btn btn-primary">Nuevo</a>
+
+    <div class="col-lg-12">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>nombre</th>
+                <th>correo</th>
+                <th></th>
+            </tr>
+            @foreach (var oElemento in Model)
+            {
+                <tr>
+                    <td>@oElemento.id</td>
+                    <td>@oElemento.nombre</td>
+                    <td>@oElemento.correo</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Tabla/Editar/@oElemento.id">EDITAR</a>
+                        <a class="btn btn-danger" href="~/Tabla/Eliminar/@oElemento.id">ELIMINAR </a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,37 @@
+﻿@model CRUD_en_MVC_.Net.Models.ViewModels.TablaViewModel
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm("Editar", "Tabla", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-lg-12">
+            @Html.HiddenFor(d=>d.id)
+            <div>
+                @Html.LabelFor(d => d.nombre)
+                @Html.TextBoxFor(d => d.nombre, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.nombre, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.correo)
+                @Html.TextBoxFor(d => d.correo, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.correo, null, new { @class = "red" })
+
+            </div>
+            <div>
+                @Html.LabelFor(d => d.fecha_nacimiento)<br />
+                @Html.EditorFor(d => d.fecha_nacimiento, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.fecha_nacimiento, null, new { @class = "red" })
+
+            </div>
+            <br />
+            <div style="text-align:right">
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+
+    </div>
+}
